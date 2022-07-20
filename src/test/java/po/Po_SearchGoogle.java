@@ -1,0 +1,41 @@
+package po;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class Po_SearchGoogle {
+    WebDriver driver;
+    public Po_SearchGoogle(WebDriver driver){
+    	this.driver =driver;
+    	
+    	}
+     @FindBy(how=How.CSS,using= "#twotabsearchtextbox")
+     private WebElement txtbx_Search;
+     
+     @FindBy(how=How.ID,using= "nav-search-submit-button")
+     private WebElement btn_search;
+     
+    
+     
+     public void SearchTextBox(String arg) {
+    	 txtbx_Search.sendKeys(arg);
+     }
+     
+     public void ClickOnSearchButton() {
+    	 btn_search.click(); 
+    	 
+     }
+     
+     //Bussiness Method
+     public void searchAProduct(String arg) {
+    	 SearchTextBox(arg);
+    	 ClickOnSearchButton();
+    	 
+    	 
+     }
+    }
